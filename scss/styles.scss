@@ -1,0 +1,389 @@
+@import'normalize.css';
+@import'layout';
+
+@import'slick';
+
+
+$light-color: #81868E;
+$contrast-color: #19bd9a;
+
+
+@mixin main-font {
+	font-family: 'Open sans',sans-serif;
+	font-weight: 400;
+	color: $light-color;
+	font-size: 14px;
+	line-height: 1.8;
+	letter-spacing: .05em;
+}
+
+@mixin title-font {
+	font-family:'Source Sans Pro', sans-serif;
+	font-weight: 300;
+	color: #333B46;
+	font-size: 20px;
+	line-height: 0.6;
+	letter-spacing: .2em;
+}
+
+
+
+.ba-container {
+	width: 1170px;
+}
+.ba-left {
+	float: left;
+}
+.ba-right {
+	float: right;
+}
+
+.ba-title {
+	@include title-font;
+	text-transform: uppercase;
+}
+
+.ba-bouncy {
+	@include main-font;
+	text-align: center;
+}
+
+// header part
+.ba-wrap {
+	position: absolute;
+	width: 1186px;
+	z-index: 1;
+}
+.ba-logo {
+	margin-top: 47px;
+	
+}
+.ba-navigation {
+	&__list {
+		list-style-type: none;
+		padding: 36px 0;
+		margin: 0;
+	}
+	&__item {
+		float: left;
+		
+		& + & {
+			margin-left: 2px;
+			
+		}
+	}
+
+	&__link {
+		display: block;
+		font-size: 16px;
+		color: #fff;
+		border-radius: 20px;
+		text-decoration: none;
+		transition-property: color, background-color, text-shadow,box-shadow;
+		transition: .2s ease-in;
+		border: 1px solid transparent;
+		padding: 3px 15px;
+		&--active {
+			border-color: #FFF;
+			
+		}
+		
+		&:hover,
+		&:active,
+		&:focus {
+			// border-color: #fff;
+			color: #A4B9BE;
+			text-shadow: 0.1px 0.1px 8px;
+			box-shadow: 0.1px 0.1px 9px;
+		}
+	}
+}
+
+// banner part
+.ba-banner {
+	background-image: url(../images/background.jpg);
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	padding: 150px 0 39px;
+	position: relative;
+	&:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background-color: transparentize(#202224,.5);
+		z-index: 0;
+	}
+	.ba-container {
+		position: relative;
+		z-index: 1;
+	}
+	&__title {
+		color: #FFF;
+		font-size: 35px;
+		margin: 142px 0 15px;
+	}
+	&__text {
+		color: #FFF;
+		font-size: 16px;
+		width: 624px;
+		margin: 39px auto 50px;
+		
+	}
+	&__link {
+		display: block;
+		width: 36px;
+		height: 36px;
+		background-color: $contrast-color;
+		border-radius: 50%;
+		padding: 5px 10px;
+		margin: 215px auto 40px;
+		transition: .2s ease-in;
+		transition-property: box-shadow;
+
+		&:hover,
+		&:active,
+		&:focus {
+			// background-color: darken($contrast-color, 20%);
+			box-shadow: 0.1px 0.1px 20px $contrast-color;
+			
+		}    
+	}
+}
+
+// TEAM SECTION
+
+.ba-team {
+	background-color: #FFF;
+	padding: 60px 0 94px;
+	&__title {
+		padding-left: 10px;
+		text-transform: uppercase;
+	}
+	&__text {
+		width: 492px;
+		margin: 34px auto 59px;
+	}
+}
+.ba-slide {
+	width: 100%;
+	text-align: right;
+	outline-style: none;
+	&__image {
+		margin-left: 70px;
+	}
+	&__title {
+		font-size: 20px;
+		letter-spacing: .04em;
+		font-weight: 400;
+		margin: 19px 0 0;
+	}
+	&__subtitle {
+		text-transform: uppercase;
+		font-style: italic;
+		margin: 0;
+	}
+	&__text {
+		width: 451px;
+		margin: 17px 0 0;
+		padding-left: 50px;
+	}
+}
+.ba-title-wrap {
+	border-right: 4px solid $contrast-color;
+	padding-right: 42px;
+	width: 498px;
+}
+.slick-dots {
+	list-style-type: none;
+	padding: 0;
+	margin: 50px auto 0;
+	li {
+		display: inline-block;
+		& + li {
+			margin-left: 10px;
+		}
+		&.slick-active {
+			button {
+				background-color: $contrast-color;
+			}
+		}
+	}
+	button {
+		display: inline-block;
+		border-radius: 50%;
+		width: 9px;
+		height: 9px;
+		border: none;
+		font-size: 0;
+		padding: 0;
+		background-color: #FFF;
+		border: 1px solid $contrast-color;
+		cursor: pointer;
+		transition-property: background-color, border;
+		transition: .2s ease-in;
+		outline: none;
+		&:hover,
+		&:active,
+		&:focus {
+			background-color: $contrast-color;
+			border: 1px solid $contrast-color;
+		}
+	}
+}
+
+
+// <!-- BA-CONTACT SECTION -->
+
+.ba-contact {
+	background: url("../images/bg-contact.jpg")center center no-repeat;
+	background-size: cover;
+	padding-bottom: 55px;
+	&__text {
+		font-family: 'OpenSans',sans-serif;
+		font-size: 20px;
+		color: #FFF;
+		text-align: center;
+		letter-spacing: 0.04em;
+		font-weight: 400;
+		padding-top: 50px;
+		padding-bottom: 12px;
+	}
+	&__link {
+		font-family: 'OpenSans',sans-serif;
+		font-size: 16px;
+		color: #FFF;
+		font-weight: 400;
+		text-align: center;
+		text-decoration: none;
+		border: 1px solid white;
+		border-radius:40px;
+		padding: 3px 10px;
+		margin: 0 auto;
+		display: block;
+		width: 140px;
+		transition: .2s ease-in;
+		transition-property:background-color,color;
+		&:hover {
+			background-color: #FFF;
+			color: $contrast-color;
+			
+		}
+		
+	}
+}
+
+// <!-- TESTIMONIALS SECTION -->
+
+.ba-testimonials {
+	background-color: #F3F3F3;
+	padding: 67px 0 100px 10px;
+	&__text {
+		margin: 34px auto 54px;
+		width: 492px;
+	}
+
+	
+}
+.ba-testimonials-slider {
+	background-color: #FFF;
+	.slick-dots {
+		margin: 28px 0 0;
+		padding: 0 0 58px;
+	}
+}
+.ba-testimonials-slide {
+	padding: 43px 0 0;
+	outline-style: none;
+	text-align: left;
+	&__image {
+		margin: 11px 0 0 90px;
+	}
+	&__text {
+		width: 767px;
+	}
+	&__title {
+		color: $contrast-color;
+		font-size: 16px;
+		font-weight: 700;
+		text-transform: uppercase;
+		margin: 23px 0 0 -8px;
+	}
+	&__subtitle {
+		text-transform: uppercase;
+		font-size: 14px;
+		margin: 0 0 0 -11px;
+	}
+	
+}
+
+ // <!-- CONTACT SECTION  -->
+
+ .ba-contact-us {
+ 	padding: 61px 0 0;
+ 	&__title {
+ 		margin: 17px 0 35px;
+ 	}
+ 	&__text{
+ 		width: 492px;
+ 		margin: 0 auto 66px;
+ 	}
+ }
+
+// MAP SECTION
+
+.ba-map {
+	height: 439px;
+	width: 100%;
+}
+
+// FOOTER SECTION
+
+
+.ba-footer {
+	padding: 74px 0 0;
+}
+.ba-social {
+	padding-top: 13px;
+	padding-bottom: 80px;
+
+	a {
+		width: 26px;
+		height: 26px;
+		transition: .2s ease-in;
+		transition-property: opacity,transform,box-shadow;
+		display: inline-block;
+		line-height: 30px;
+		text-align: center;
+		border-radius: 50%;
+		margin: 2px;
+		&:hover {
+			opacity: 1;
+			-webkit-transform: scale(1.2);
+			-ms-transform: scale(1.2);
+			-o-transform: scale(1.2);
+			transform: scale(1.2);
+			box-shadow: 0.1px 0.1px 30px $contrast-color;
+		}
+	}
+	&__fb {
+		background-color: #666;
+	}
+	&__twitter {
+		background-color: #26a6d1;
+	}
+	&__in {
+		background-color: #0e76a8;
+	}
+	&__inst {
+		background-color: #3f729b;
+	}
+	&__v {
+		background-color: #86c9ef;
+
+	}
+}
+
